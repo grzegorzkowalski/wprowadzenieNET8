@@ -36,5 +36,75 @@ namespace FilmDB.Controllers
                 return View(film);
             }             
         }
+
+        [HttpGet]
+        public IActionResult EditFilm(int id)
+        {
+            var filmToEdit = _filmManager.GetFilm(id);
+            if (filmToEdit != null)
+            {
+                return View(filmToEdit);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+        [HttpPost]
+        public IActionResult EditFilm(Film film)
+        {
+            if (film != null)
+            {
+                _filmManager.UpdateFilm(film);
+                return RedirectToAction("Index");   
+            }
+            else
+            {
+                return View(film);
+            }   
+        }
+
+        [HttpGet]
+        public ActionResult Details(int id) 
+        {
+            var film = _filmManager.GetFilm(id);
+            if (film != null)
+            {
+                return View(film);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult RemoveFilm(int id) 
+        {
+            var filmToDelete = _filmManager.GetFilm(id);
+            if (filmToDelete != null)
+            {
+                return View(filmToDelete);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Remove(int id)
+        { 
+            var filmToDelete = _filmManager.GetFilm(id);
+            if (filmToDelete != null)
+            {
+                _filmManager.RemoveFilm(id);
+                return RedirectToAction("Index");
+            }
+            else 
+            {
+                return View("RemoveFilm", id);
+            }
+        }
     }
 }
