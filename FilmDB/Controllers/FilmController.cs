@@ -1,15 +1,18 @@
 ﻿using FilmDB.Models;
 using FilmDB.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FilmDB.Controllers
 {
     public class FilmController : Controller
     {
         private readonly FilmManager _filmManager;
-        public FilmController(FilmManager filmManager) 
+        private readonly GenreManager _genreManager;
+        public FilmController(FilmManager filmManager, GenreManager genreManager) 
         { 
             _filmManager = filmManager;
+            _genreManager = genreManager;
         }
         public IActionResult Index()
         {
@@ -20,6 +23,8 @@ namespace FilmDB.Controllers
         [HttpGet]
         public IActionResult AddFilm() 
         {
+            //ViewBag.Genres = new SelectList( (_genreManager.GetGenres());
+            ViewBag.Genres = new SelectList(_genreManager.GetGenresSync(), "Id", "Name");
             return View();
         }
 

@@ -15,6 +15,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddTransient<FilmManager>();
+builder.Services.AddTransient<GenreManager>();
 
 builder.Services.AddControllersWithViews();
 
