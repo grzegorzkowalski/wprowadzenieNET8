@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FilmDB.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240119114720_Init")]
+    [Migration("20240119140015_Init")]
     partial class Init
     {
         /// <inheritdoc />

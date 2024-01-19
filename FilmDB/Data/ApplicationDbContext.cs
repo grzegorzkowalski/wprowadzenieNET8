@@ -1,6 +1,7 @@
 ﻿using FilmDB.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using FilmDB.ViewModels;
 
 namespace FilmDB.Data
 {
@@ -29,5 +30,6 @@ namespace FilmDB.Data
                 new Film { Id = 2, Title = "Film B", Year = 2022, GenreId = 2 }
             );
         }
+        public DbSet<FilmDB.ViewModels.AddRole> AddRole { get; set; } = default!;
     }
 }

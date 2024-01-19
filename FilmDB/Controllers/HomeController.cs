@@ -19,13 +19,13 @@ namespace FilmDB.Controllers
 
         public IActionResult Index()
         {
-            var newFilm = new Film() 
-            { 
-                Title = "Matrix",
-                Year = 1999,
-                Id = 15
-            };
-            _manager.AddFilm(newFilm);
+            //var newFilm = new Film() 
+            //{ 
+            //    Title = "Matrix",
+            //    Year = 1999,
+            //    Id = 15
+            //};
+            //_manager.AddFilm(newFilm);
             return View();
         }
 

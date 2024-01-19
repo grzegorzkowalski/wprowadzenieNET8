@@ -23,7 +23,6 @@ namespace FilmDB.Controllers
         [HttpGet]
         public IActionResult AddFilm() 
         {
-            //ViewBag.Genres = new SelectList( (_genreManager.GetGenres());
             ViewBag.Genres = new SelectList(_genreManager.GetGenresSync(), "Id", "Name");
             return View();
         }
